@@ -1,0 +1,377 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row =>
+                    row.some(cell => cell !== '' && cell !== null && cell !== undefined)
+                );
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row =>
+                    row.some(cell => cell !== '' && cell !== null && cell !== undefined)
+                );
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+</script>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澎湖馬公一日遊行程（素食友善・親子版）</title>
+    <style>
+        body {
+            font-family: Arial, 'Noto Sans TC', sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f4f7fb;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #be1913;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #e6f3fa;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tips {
+            background-color: #e8f4f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        .parent-friendly {
+            background-color: #fef7e8;
+            padding: 10px;
+            border-left: 4px solid #f1c40f;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>澎湖馬公一日遊行程（素食友善・親子版）</h1>
+
+    <div class="section">
+        <p><strong>日期</strong>：2025年4月16日</p>
+        <p><strong>起點</strong>：馬公渡船口（08:00抵達）</p>
+        <p><strong>交通方式</strong>：租借機車（建議）或計程車/包車</p>
+        <p><strong>主題</strong>：歷史文化、自然海景、親子活動、素食友善</p>
+    </div>
+
+    <div class="section">
+        <h2>行程概覽</h2>
+        <ul>
+            <li><strong>時間</strong>：08:00 - 21:00</li>
+            <li><strong>景點</strong>：篤行十村、澎湖天后宮、中央老街、澎湖生活博物館、隘門沙灘、西瀛虹橋</li>
+            <li><strong>預算</strong>：約 NT$800-1200/人（含租車、門票，餐飲自行安排）</li>
+            <li><strong>注意事項</strong>：
+                <ul>
+                    <li>攜帶防曬用品（防曬乳、帽子）、足量飲水，準備小孩的防曬衣物</li>
+                    <li>騎機車注意安全，確保小孩乘坐安全（建議使用親子款機車或包車）</li>
+                    <li>自行尋找素食餐廳，確認無蛋奶成分，建議參考「素食餐廳」區塊；攜帶小孩零食與玩具</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>行程表格</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>時間</th>
+                    <th>地點</th>
+                    <th>活動</th>
+                    <th>距離/交通</th>
+                    <th>地圖連結</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08:00 - 08:30</td>
+                    <td>馬公渡船口</td>
+                    <td>抵達，租借機車或聯繫計程車</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>08:30 - 10:00</td>
+                    <td>篤行十村</td>
+                    <td>探索眷村歷史，參觀彩繪牆，親子拍照</td>
+                    <td>渡船口騎車約5-10分鐘（2km）</td>
+                    <td><a href="https://maps.app.goo.gl/UPu12cF9GC17uoTs5" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>10:00 - 11:30</td>
+                    <td>澎湖天后宮</td>
+                    <td>參觀全台最古老媽祖廟，體驗文化氛圍</td>
+                    <td>篤行十村騎車約5分鐘（1km）</td>
+                    <td><a href="https://maps.app.goo.gl/ncgqs2yn9JFBv3H1A" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>11:30 - 13:30</td>
+                    <td>中央老街</td>
+                    <td>漫步老街，購買紀念品，自行尋找午餐，休息</td>
+                    <td>天后宮步行約5分鐘（0.5km）</td>
+                    <td><a href="https://maps.app.goo.gl/5eaHVUGyY6E4EGtt9" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>13:30 - 15:00</td>
+                    <td>澎湖生活博物館（可替換）</td>
+                    <td>了解澎湖漁村文化，參觀互動展覽</td>
+                    <td>中央老街騎車約5-10分鐘（2km）</td>
+                    <td><a href="https://maps.app.goo.gl/wfejBXd6cuxNkkkG7" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>15:00 - 17:30</td>
+                    <td>隘門沙灘（可替換）</td>
+                    <td>踏浪、玩沙、親子放鬆</td>
+                    <td>博物館騎車約20-25分鐘（10km）</td>
+                    <td><a href="https://maps.app.goo.gl/2mdr6X8s94GgTq3y8" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>17:30 - 19:00</td>
+                    <td>中央老街</td>
+                    <td>自行尋找晚餐，休息</td>
+                    <td>隘門沙灘騎車約20-25分鐘（10km）</td>
+                    <td><a href="https://maps.app.goo.gl/5eaHVUGyY6E4EGtt9" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>19:00 - 21:00</td>
+                    <td>西瀛虹橋</td>
+                    <td>欣賞夕陽，漫步公園，親子遊戲</td>
+                    <td>中央老街騎車約5-10分鐘（2km）</td>
+                    <td><a href="https://maps.app.goo.gl/J8zM93hcMkG4gLc6A" target="_blank">Google 地圖</a></td>
+                </tr>
+                <tr>
+                    <td>21:00</td>
+                    <td>返回住宿或還車</td>
+                    <td>結束行程，返還機車或返回住宿</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>詳細行程說明</h2>
+<hr>
+        <h3>08:00 - 08:30 馬公渡船口</h3>
+        <p><strong>活動</strong>：抵達馬公港，租借機車（費用約 NT$400-600/天，建議預約親子款機車或包車）。備妥防曬用品、輕便背包及小孩必需品（尿布、零食）。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：確認機車有適合小孩的安全座椅，或選擇計程車/包車以提升安全性。攜帶小孩喜愛的玩具以安撫情緒。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：在渡船口附近休息區讓小孩稍作活動，準備好水壺與防曬帽。</p>
+        </div>
+<hr>
+        <h3>08:30 - 10:00 篤行十村</h3>
+        <p><strong>活動</strong>：漫步台灣最完整眷村，參觀澎湖開拓館（門票約 NT$50），拍照彩繪牆，探索文創店（約1.5小時）。小孩可在彩繪牆前拍照或在園區空地玩耍。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：園區有文創咖啡廳，可休息並點素食點心。開拓館展覽適合稍大孩子，幼童可略過。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：讓小孩在彩繪牆前畫畫或拍照，攜帶簡單畫本讓他們臨摹牆上圖案。園區平坦，適合推車。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/UPu12cF9GC17uoTs5" target="_blank">篤行十村 - Google 地圖</a></p>
+<hr>
+        <h3>10:00 - 11:30 澎湖天后宮</h3>
+        <p><strong>活動</strong>：參觀全台歷史最悠久的媽祖廟，建於明朝，欣賞木雕建築，感受文化氛圍（約1.5小時，含休息）。可讓小孩觀察廟宇的彩色裝飾或簡單祈福。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：天后宮免費參觀，保持安靜。廟前廣場適合小孩短暫活動，但避免跑跳影響其他遊客。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：帶小孩認識媽祖故事（可簡化為「海上的守護神」），或在廟旁小店買仙人掌冰（注意選擇無乳製品版本）。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/ncgqs2yn9JFBv3H1A" target="_blank">澎湖天后宮 - Google 地圖</a></p>
+<hr>
+        <h3>11:30 - 13:30 中央老街</h3>
+        <p><strong>活動</strong>：漫步馬公最古老商業街，購買紀念品（如黑糖糕，確認無動物成分），自行尋找素食午餐，休息（約2小時）。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：上午老街人少，適合悠閒探索。參考「素食餐廳」區塊，詢問店家是否提供素食，確認無蛋奶成分，攜帶素食零食以備用。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：選擇有室內座位或遮陽區的餐廳，讓小孩舒適休息。老街有平坦步道，適合推車漫步。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/5eaHVUGyY6E4EGtt9" target="_blank">中央老街 - Google 地圖</a></p>
+<hr>
+        <h3>13:30 - 15:00 澎湖生活博物館（可替換）</h3>
+        <p><strong>活動</strong>：了解澎湖漁村文化，參觀互動展覽，適合學齡兒童（約1.5小時）。小孩可參與簡單互動活動或觀察模型展示。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：門票約 NT$80，展覽內容豐富，幼童可能需家長引導。館內有休息區，可稍作停留。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：帶小孩參與互動展覽（如漁網編織體驗），或在休息區講述澎湖海洋故事。館內平坦，適合推車。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/wfejBXd6cuxNkkkG7" target="_blank">澎湖生活博物館 - Google 地圖</a></p>
+<hr>
+        <h3>15:00 - 17:30 隘門沙灘（可替換）</h3>
+        <p><strong>活動</strong>：欣賞細白沙灘，親子踏浪、玩沙、堆沙堡（約2.5小時，含休息）。沙灘平緩，適合小孩安全玩耍。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：不建議游泳，攜帶拖鞋、防曬乳及沙灘玩具。準備毛巾擦拭沙子，注意防曬。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：帶小孩玩沙堡比賽或撿貝殼，攜帶遮陽傘或帳篷讓小孩休息。沙灘旁有簡單休息區，可餵食小孩零食。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/2mdr6X8s94GgTq3y8" target="_blank">隘門沙灘 - Google 地圖</a></p>
+<hr>
+        <h3>17:30 - 19:00 中央老街</h3>
+        <p><strong>活動</strong>：自行尋找素食晚餐，休息（約1.5小時）。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：老街有素食小吃攤或餐廳，參考「素食餐廳」區塊，提前詢問素食選項（可要求無蛋奶）。選擇有座位的餐廳，方便小孩用餐。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：點選簡單菜色（如炒麵或水果沙拉），適合小孩口味。帶小孩繪本或小玩具，避免用餐時無聊。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/5eaHVUGyY6E4EGtt9" target="_blank">中央老街 - Google 地圖</a></p>
+<hr>
+        <h3>19:00 - 21:00 西瀛虹橋</h3>
+        <p><strong>活動</strong>：欣賞夕陽下的虹橋，漫步觀音亭公園，親子遊戲（如放風箏、玩球，約2小時）。公園草地寬敞，適合小孩跑跳。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：夕陽約17:30-18:00，攜帶相機捕捉美景。公園有涼亭，可休息。</p>
+        </div>
+        <div class="parent-friendly">
+            <p><strong>親子建議</strong>：帶簡單風箏或泡泡槍，讓小孩在草地上玩耍。準備薄外套，傍晚可能微涼。</p>
+        </div>
+        <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/J8zM93hcMkG4gLc6A" target="_blank">西瀛虹橋 - Google 地圖</a></p>
+<hr>
+        <h3>21:00 結束行程</h3>
+        <p><strong>活動</strong>：返回租車行還車，或搭計程車返回住宿。</p>
+        <div class="tips">
+            <p><strong>Tips</strong>：確認小孩物品齊全，提前聯繫住宿準備小孩床鋪或用品。</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>備選景點</h2>
+        <ul>
+            <li><strong>康倪海洋生技-丑丑館</strong>：參觀海洋生物展覽，體驗互動活動（約1小時，適合親子）。
+                <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/vLFi8uxAJdnitpxM8" target="_blank">康倪海洋生技-丑丑館 - Google 地圖</a></p>
+            </li>
+            <li><strong>澎坊購物休閒廣場</strong>：探索購物與休閒空間，適合親子短暫休息（約1小時）。
+                <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/Jrc724AfBfJ1YhjQA" target="_blank">澎坊購物休閒廣場 - Google 地圖</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>素食餐廳</h2>
+        <ul>
+            <li><strong>常和building&light meal</strong>：提供輕食與素食餐點，適合快速用餐，親子友善（約1小時）。
+                <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/7EHcwgaQF2ZAHtr58" target="_blank">常和building&light meal - Google 地圖</a></p>
+            </li>
+            <li><strong>草根果子 Grassroots & Fruit</strong>：專注素食甜點與飲品，氣氛輕鬆，適合小孩（約1小時）。
+                <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/mFhyL6BvHcLrMddj9" target="_blank">草根果子 Grassroots & Fruit - Google 地圖</a></p>
+            </li>
+            <li><strong>Yii Habitats 創翼棲息地</strong>：提供創意素食料理，環境舒適，適合家庭聚餐（約1-1.5小時）。
+                <p><strong>地圖連結</strong>：<a href="https://maps.app.goo.gl/GV7ao8wxEEsAGC8G6" target="_blank">Yii Habitats 創翼棲息地 - Google 地圖</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>實用資訊</h2>
+        <ul>
+            <li><strong>租車聯繫</strong>：澎湖機車出租（電話：06-926-1234），建議預約親子款機車或包車。</li>
+            <li><strong>公車備案</strong>：搭乘「隘門線」公車至隘門沙灘（查詢時刻表，確認是否有推車空間）。</li>
+            <li><strong>天氣準備</strong>：4月澎湖氣溫約20-25°C，紫外線強，攜帶小孩防曬衣、薄外套及水壺。</li>
+            <li><strong>地圖導航</strong>：使用 Google Maps 或「澎湖旅遊地圖」App（中文應用商店可下載）。</li>
+            <li><strong>親子備品</strong>：攜帶推車、沙灘玩具、素食零食、繪本、簡單醫藥包（創可貼、退燒藥）。</li>
+            <li><strong>素食提示</strong>：參考「素食餐廳」區塊，提前確認餐點無蛋奶成分，攜帶素食零食以備用。</li>
+        </ul>
+    </div>
+
+</body>
+</html>
